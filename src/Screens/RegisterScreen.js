@@ -1,5 +1,5 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import { Avatar, Button, Checkbox, FormControlLabel, Grid, TextField, Typography } from '@mui/material'
+import { Alert, Avatar, Button, Checkbox, FormControlLabel, Grid, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
@@ -48,7 +48,12 @@ const RegisterScreen = () => {
             Create An Account
           </Typography>
 
-          <Box component='form' noValidate sx={{ mt: 1 }} onSubmit={handleSubmit} autoComplete='off'> 
+          <Box component='form' noValidate sx={{ mt: 1 }} onSubmit={handleSubmit} autoComplete='off'>
+            {error && (
+              <Alert variant='filled' severity='error'>
+                {error}
+              </Alert>
+            )}
             <TextField
               margin='normal'
               fullWidth
@@ -99,7 +104,7 @@ const RegisterScreen = () => {
               onChange={(e) => setAgree(e.target.value)}
               label='I agree to the Terms &amp; Conditions'
             />
-            {error && <Typography color='red'>{error}</Typography>}
+
             <Button type='submit' disabled={loading} fullWidth variant='contained' sx={{ my: 1 }}>
               Register
             </Button>

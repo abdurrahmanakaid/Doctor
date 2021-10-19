@@ -1,6 +1,6 @@
 import GoogleIcon from '@mui/icons-material/Google'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import { Avatar, Button, Checkbox, FormControlLabel, Grid, TextField, Typography } from '@mui/material'
+import { Alert, Avatar, Button, Checkbox, FormControlLabel, Grid, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
@@ -48,7 +48,13 @@ const LoginScreen = () => {
           <Typography component='h1' variant='h5'>
             Sign in
           </Typography>
+
           <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }} autoComplete='off'>
+            {error && (
+              <Alert variant='filled' severity='error'>
+                {error}
+              </Alert>
+            )}
             <TextField
               margin='normal'
               fullWidth
@@ -72,8 +78,6 @@ const LoginScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel control={<Checkbox value='remember' color='primary' />} label='Remember me' />
-
-            {error && <Typography color='red'>{error}</Typography>}
 
             <Button disabled={loading} type='submit' fullWidth variant='contained' sx={{ my: 1 }}>
               Sign In
