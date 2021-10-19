@@ -1,4 +1,5 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import DashboardIcon from '@mui/icons-material/Dashboard'
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
 import LoginIcon from '@mui/icons-material/Login'
 import LogoutIcon from '@mui/icons-material/Logout'
@@ -11,8 +12,6 @@ import MUISwitch from './LighDarkMode'
 
 const Header = ({ darkMode, setDarkMode }) => {
   const { currentUser, logout } = useAuth()
-
-  console.log(currentUser)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='fixed' elevation={0} color='primary'>
@@ -29,6 +28,9 @@ const Header = ({ darkMode, setDarkMode }) => {
 
           {currentUser ? (
             <>
+              <Button color='inherit' component={Link} to='/Dashboard'>
+                <DashboardIcon sx={{ mr: 1 }} /> Dashboard
+              </Button>
               <Button color='inherit'>
                 <AccountCircleIcon sx={{ mr: 1 }} /> {currentUser.displayName}
               </Button>

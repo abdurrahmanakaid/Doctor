@@ -44,6 +44,8 @@ export function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password)
   }
 
+  // login with Google function
+
   // logout function
   function logout() {
     const auth = getAuth()

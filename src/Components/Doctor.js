@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { Button, Card, CardContent, CardMedia, Divider, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -12,14 +12,15 @@ const Doctor = ({ doctor, title }) => {
           <Typography component='div' variant='subtitle1' fontWeight={600}>
             {title}
           </Typography>
-          <Typography variant='h4' color='text.secondary' component='div'>
+          <Typography variant='h5' color='text.secondary' component='div' fontWeight={600}>
             {doctor.name}
           </Typography>
-          <Typography variant='subtitle1' color='text.secondary' component='div'>
+          <Divider />
+          <Typography variant='subtitle1' color='text.secondary' component='div' sx={{ my: 2 }}>
             {doctor.description}
           </Typography>
-          <Typography variant='h6' color='text.secondary' component='div'>
-            Gender: {doctor.gender} Doctor || Fee: ${doctor.price}
+          <Typography variant='h6' color='text.secondary' component='div' paragraph>
+            {doctor.gender} Doctor || Fee: ${doctor.price}
           </Typography>
 
           <Rating value={doctor.rating} text={` ${doctor.numReviews} Reviews`} />
