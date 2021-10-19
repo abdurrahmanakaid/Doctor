@@ -41,14 +41,14 @@ const LoginScreen = () => {
   return (
     <Grid container justifyContent='center' alignItems='center'>
       <Grid item md={4}>
-        <Box sx={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Box sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component='h1' variant='h5'>
             Sign in
           </Typography>
-          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }} autoComplete='off'>
             <TextField
               margin='normal'
               fullWidth
@@ -75,7 +75,7 @@ const LoginScreen = () => {
 
             {error && <Typography color='red'>{error}</Typography>}
 
-            <Button disabled={loading} type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
+            <Button disabled={loading} type='submit' fullWidth variant='contained' sx={{ my: 1 }}>
               Sign In
             </Button>
             <Grid container>
@@ -91,7 +91,7 @@ const LoginScreen = () => {
               </Grid>
             </Grid>
           </Box>
-          <Button fullWidth variant='contained' color='secondary' onClick={handleGoogleSignIn} sx={{ my: 4 }}>
+          <Button fullWidth variant='contained' color='secondary' onClick={handleGoogleSignIn} sx={{ my: 2 }}>
             <GoogleIcon /> Google
           </Button>
         </Box>

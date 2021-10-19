@@ -40,7 +40,7 @@ const RegisterScreen = () => {
   return (
     <Grid container justifyContent='center' alignItems='center'>
       <Grid item sm={8} md={4}>
-        <Box sx={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Box sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -48,7 +48,7 @@ const RegisterScreen = () => {
             Create An Account
           </Typography>
 
-          <Box component='form' noValidate sx={{ mt: 1 }} onSubmit={handleSubmit}>
+          <Box component='form' noValidate sx={{ mt: 1 }} onSubmit={handleSubmit} autoComplete='off'> 
             <TextField
               margin='normal'
               fullWidth
@@ -100,7 +100,7 @@ const RegisterScreen = () => {
               label='I agree to the Terms &amp; Conditions'
             />
             {error && <Typography color='red'>{error}</Typography>}
-            <Button type='submit' disabled={loading} fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
+            <Button type='submit' disabled={loading} fullWidth variant='contained' sx={{ my: 1 }}>
               Register
             </Button>
 
